@@ -5,13 +5,11 @@ var jadeGlobbing = require('gulp-jade-globbing');
 // define tasks here
 gulp.task('default', function(){
 
- gulp.src('./templates/all.jade')
- 		.pipe(jadeGlobbing({
- 			placeholder: {
-      'alltemplates': '**/*.jade'
-      }
- 		}))
+ gulp.src([
+ 			'./pages/**/*.jade'
+ 		])
+ 		.pipe(jadeGlobbing())
     .pipe(jade())
-    .pipe(gulp.dest('./pages/'))
+    .pipe(gulp.dest('./dist/'))
 
 });
